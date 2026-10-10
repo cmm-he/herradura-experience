@@ -62,6 +62,20 @@
     actualizar();
   });
 
+  // Selector de nivel de kitesurf → recomendación y WhatsApp con el nivel.
+  document.querySelectorAll('[data-niveles]').forEach(function (bloque) {
+    var titulo = bloque.querySelector('[data-rec-titulo]');
+    var texto = bloque.querySelector('[data-rec-texto]');
+    var wsp = bloque.querySelector('[data-rec-wsp]');
+    bloque.addEventListener('change', function (e) {
+      var r = e.target;
+      if (r.type !== 'radio') return;
+      titulo.textContent = r.dataset.titulo;
+      texto.textContent = r.dataset.texto;
+      wsp.href = 'https://wa.me/' + WSP + '?text=' + encodeURIComponent('Hola, quiero clases de kitesurf. Mi nivel: ' + r.dataset.nivel + '.');
+    });
+  });
+
   // Formulario: arma el mensaje y abre WhatsApp. No envía datos a ningún servidor.
   var form = document.getElementById('form-reserva');
   if (!form) return;
