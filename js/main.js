@@ -18,7 +18,7 @@
   }
 
   // "Arma tu clase": actividad, fecha, horario, personas (+ nivel si es kitesurf) → WhatsApp.
-  var NOMBRES = { kitesurf: 'una clase de kitesurf', surf: 'una clase de surf', sup: 'una salida de stand up paddle', ebike: 'una salida privada en e-bike' };
+  var NOMBRES = { kitesurf: 'una clase de kitesurf', windsurf: 'una clase de windsurf', surf: 'una clase de surf', sup: 'una salida de stand up paddle', ebike: 'una salida privada en e-bike' };
 
   function fechaLarga(valor) {
     if (!valor) return '';
@@ -56,8 +56,8 @@
       for (var h = desde; h <= hasta; h++) { var t = (h < 10 ? '0' : '') + h + ':00'; r.push([t, 'a las ' + t]); }
       return r;
     }
-    // Confirmado por Carlos (10-oct-2026). Hora de inicio: kite 11–18 h (Puclaro), surf 9–16 h, SUP y e-bike 8–18 h.
-    var HORARIOS = { kitesurf: horas(11, 17), surf: horas(9, 15), sup: horas(8, 17), ebike: horas(8, 17) };
+    // Confirmado por Carlos (10-oct-2026). Hora de inicio: kite y windsurf 11–18 h, surf y SUP 9–18 h, e-bike 8–18 h.
+    var HORARIOS = { kitesurf: horas(11, 17), windsurf: horas(11, 17), surf: horas(9, 17), sup: horas(9, 17), ebike: horas(8, 17) };
     // SUP y e-bike: mínimo 2 personas.
     var MINIMO = { sup: 2, ebike: 2 };
     var personasBase = Array.prototype.map.call(el.personas.options, function (o) { return [o.textContent, o.value]; });
@@ -117,7 +117,7 @@
   var campoNivel = document.getElementById('campo-nivel');
 
   function mostrarNivel() {
-    var esKite = /kite|viaje/i.test(actividad.value);
+    var esKite = /kite|windsurf|viaje/i.test(actividad.value);
     campoNivel.hidden = !esKite;
   }
   actividad.addEventListener('change', mostrarNivel);
