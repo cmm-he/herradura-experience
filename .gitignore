@@ -1,0 +1,16 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Configuración local de herramientas (puede tener permisos o rutas personales)
+.claude/
+.vscode/
+.vercel/
+.env
+.env.*
+
+# Documentos internos: van en ../documentos, nunca en el sitio público
+PENDIENTES.md
+*.xlsx
+*.docx
+*.pdf
