@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 920 920" width="920" height="920"><title>Herradura Experience - letras depuradas - isotipo</title><desc>Isotipo aprobado, letras convertidas a contornos desde referencia original. Sin imágenes incrustadas ni dependencia de fuentes.</desc><defs><clipPath id="interior"><circle cx="400" cy="400" r="350" /></clipPath></defs>
+<circle id="circulo-exterior" cx="400" cy="400" r="400" fill="#032846" />
+<circle id="campo-blanco" cx="400" cy="400" r="360" fill="white" />
+<g clip-path="url(#interior)" id="paisaje-y-monograma">
+<path id="H" fill="#032846" d="M250 95 H350 V175 H450 V95 H550 V320 Q520 330 500 345 H450 V245 H350 V325 Q300 303 250 305 Z" />
+<path id="sol" fill="#FFBE00" d="M485 435 A105 105 0 0 1 695 435 Z" />
+<path id="duna" fill="#032846" d="M50 409 C120 355 187 317 250 315 C322 312 368 340 426 366 C482 391 501 397 548 400 C578 402 601 415 615 435 H50 Z" />
+<path id="agua-calipso" fill="#00BCEB" d="M0 445 H800 V510 H0 Z" />
+<path id="agua-azul" fill="#008DBF" d="M0 510 H800 V570 H0 Z" />
+<path id="agua-profunda" fill="#006098" d="M0 570 H800 V630 H0 Z" />
+<path id="agua-marino" fill="#032846" d="M0 630 H800 V800 H0 Z" />
+<path id="E" fill="white" d="M250 455 H550 V513 H328 V551 H520 V609 H328 V647 H550 V705 H250 Z" />
+</g></svg>

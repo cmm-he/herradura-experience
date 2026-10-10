@@ -1,0 +1,139 @@
+/* Propuesta B — "Marino": oscuro, deportivo, tipografía condensada */
+:root {
+  --marino: #032846;
+  --noche: #021C33;
+  --profundo: #006098;
+  --agua: #008DBF;
+  --calipso: #00BCEB;
+  --sol: #FFBE00;
+  --blanco: #F3F7FA;
+  --suave: #A9BDCC;
+  --linea: rgba(169, 189, 204, .22);
+  --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --sans: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ancho: 1320px;
+  --gutter: clamp(20px, 5vw, 56px);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--noche); color: var(--blanco);
+  font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { max-width: var(--ancho); margin: 0 auto; padding-inline: var(--gutter); }
+
+/* ---------- Header: claro, para respetar el logo a color ---------- */
+.header { position: sticky; top: 0; z-index: 20; background: #fff; color: var(--marino); }
+.header .wrap { display: flex; align-items: center; gap: 24px; height: 72px; }
+.logo img { height: 48px; width: auto; }
+.nav { display: none; gap: 26px; margin-left: auto; font: 600 15px/1 var(--sans); letter-spacing: .02em; }
+.nav a { text-decoration: none; }
+.nav a:hover { color: var(--profundo); }
+.header-cta { display: flex; gap: 8px; margin-left: auto; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 0 24px; border-radius: 2px; border: 0;
+  font: 700 16px/1 var(--display); letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap; transition: background .2s, color .2s;
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-calipso { background: var(--calipso); color: var(--noche); }
+.btn-calipso:hover { background: #4FD3F5; }
+.btn-claro { background: transparent; color: var(--blanco); box-shadow: inset 0 0 0 1.5px var(--blanco); }
+.btn-claro:hover { background: var(--blanco); color: var(--noche); }
+.btn-marino { background: var(--marino); color: #fff; }
+.btn-marino:hover { background: var(--profundo); }
+.btn-wsp { background: transparent; color: var(--marino); box-shadow: inset 0 0 0 1.5px var(--marino); }
+.header .btn { min-height: 42px; padding: 0 14px; font-size: 15px; }
+.header .btn-texto { display: none; }
+@media (min-width: 1020px) {
+  .nav { display: flex; }
+  .header-cta { margin-left: 12px; }
+  .header .btn-texto { display: inline; }
+}
+
+/* ---------- Hero a sangre ---------- */
+.hero { position: relative; min-height: min(92svh, 860px); display: grid; align-items: end; overflow: hidden; }
+.hero picture, .hero picture img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero picture img { object-fit: cover; object-position: 70% 50%; }
+.hero-panel {
+  position: relative; width: 100%;
+  padding-block: clamp(28px, 5vw, 56px) 0;
+}
+.hero-caja {
+  background: var(--noche); padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 48px) clamp(28px, 4vw, 48px);
+  max-width: 600px;
+  border-top: 4px solid var(--calipso);
+}
+.hero .eyebrow {
+  margin: 0 0 14px; font: 600 14px/1.2 var(--display); letter-spacing: .22em; text-transform: uppercase; color: var(--calipso);
+}
+.hero h1 {
+  margin: 0 0 18px; font: 800 clamp(48px, 7.4vw, 92px)/.9 var(--display);
+  text-transform: uppercase; letter-spacing: -.005em;
+}
+.hero h1 span { display: block; color: var(--calipso); }
+.hero-texto { margin: 0 0 28px; color: var(--suave); font-size: clamp(17px, 1.5vw, 19px); max-width: 32em; }
+.hero-botones { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-sol {
+  position: absolute; right: var(--gutter); top: clamp(24px, 6vw, 64px);
+  display: none; align-items: center; gap: 10px;
+  font: 700 15px/1 var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--marino);
+  background: #fff; padding: 12px 16px; border-radius: 2px;
+}
+.hero-sol::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--sol); }
+@media (min-width: 720px) { .hero-sol { display: inline-flex; } }
+
+/* ---------- Confianza ---------- */
+.confianza { padding-block: clamp(64px, 9vw, 120px); background: var(--marino); }
+.confianza h2 {
+  margin: 0 0 12px; font: 800 clamp(36px, 5vw, 64px)/.95 var(--display); text-transform: uppercase;
+}
+.confianza .intro { margin: 0 0 clamp(36px, 5vw, 64px); color: var(--suave); max-width: 38em; }
+
+.cifras { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: 0; }
+.cifra { display: flex; flex-direction: column; padding: 22px 16px 22px 0; border-top: 2px solid var(--linea); }
+.cifra:first-child { border-top-color: var(--calipso); }
+.cifra dd { margin: 0; font: 800 clamp(56px, 7vw, 96px)/.9 var(--display); }
+.cifra dd small { font-size: .38em; color: var(--suave); margin-left: 2px; }
+.cifra dt { order: 2; margin-top: 10px; font-size: 14px; line-height: 1.45; color: var(--suave); }
+@media (min-width: 900px) { .cifras { grid-template-columns: repeat(4, 1fr); gap: 0 28px; } }
+
+.resenas {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 16px;
+  margin-top: clamp(48px, 7vw, 80px); overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: 8px; scrollbar-width: thin;
+}
+.resena {
+  scroll-snap-align: start; margin: 0; padding: 28px; background: var(--noche);
+  display: flex; flex-direction: column; gap: 18px; border-left: 3px solid var(--agua);
+}
+.resena:nth-child(2) { border-left-color: var(--calipso); }
+.resena:nth-child(3) { border-left-color: var(--sol); }
+.resena blockquote { margin: 0; font: 700 clamp(24px, 2.4vw, 32px)/1.05 var(--display); text-transform: uppercase; }
+.resena figcaption { margin-top: auto; font-size: 14px; color: var(--suave); }
+.resena figcaption strong { color: var(--blanco); }
+.estrellas { display: flex; gap: 3px; }
+.estrellas svg { width: 15px; height: 15px; fill: var(--sol); }
+@media (min-width: 900px) {
+  .resenas { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; }
+}
+.fuente { margin-top: 24px; font-size: 14px; color: var(--suave); }
+.fuente a { color: var(--calipso); }
+
+.nota-prototipo {
+  margin: 0; font: 500 12px/1.4 var(--sans); background: #FFF4CC; color: #5A4500;
+  padding: 10px var(--gutter); text-align: center;
+}
+
+/* Móvil: foto arriba, texto abajo, para no tapar al rider */
+@media (max-width: 699px) {
+  .hero { display: block; min-height: 0; }
+  .hero picture, .hero picture img { position: relative; inset: auto; height: auto; }
+  .hero picture img { aspect-ratio: 4 / 5; object-position: 50% 62%; }
+  .hero-panel { padding: 0; margin-top: -48px; }
+  .hero-caja { margin-right: 0; }
+}
