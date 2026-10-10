@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /propuestas/
+Allow: /
+
+Sitemap: https://herraduraexperience.cl/sitemap.xml
