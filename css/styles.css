@@ -380,3 +380,45 @@ h3 { font-size: clamp(24px, 2.4vw, 30px); line-height: 1.15; }
 .banda-viajes { display: grid; gap: 24px; align-items: center; }
 .banda-viajes p { margin: 0; }
 @media (min-width: 900px) { .banda-viajes { grid-template-columns: 1fr auto; } }
+
+/* ---------- Dato pendiente (nunca debe llegar a producción: buscar "dato-pendiente") ---------- */
+.dato-pendiente {
+  display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border: 1.5px dashed #C9A227;
+  border-radius: 999px; background: #FFF8DD; color: #6B5300; font: 500 13px/1.6 var(--sans); white-space: nowrap;
+}
+.dato-pendiente::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--sol); }
+
+/* ---------- Ficha de actividad ---------- */
+.ficha { margin: 0; display: grid; border-top: 1px solid var(--linea); }
+.ficha > div { display: grid; grid-template-columns: 9em 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--linea); align-items: baseline; }
+.ficha dt { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); }
+.ficha dd { margin: 0; font-size: 17px; }
+.ficha dd strong { font: 400 26px/1 var(--serif); }
+
+.actividad-bloque { display: grid; gap: clamp(32px, 5vw, 64px); align-items: start; }
+.actividad-bloque + .actividad-bloque { margin-top: var(--seccion); padding-top: var(--seccion); border-top: 1px solid var(--linea); }
+.actividad-bloque h2 { margin-bottom: 18px; }
+.actividad-bloque .lead { margin: 0 0 28px; }
+.actividad-foto { margin: 0; aspect-ratio: 4 / 3; background: var(--profundo); border-radius: var(--radio); overflow: hidden; }
+@media (min-width: 900px) {
+  .actividad-bloque { grid-template-columns: 1fr 1fr; }
+  .actividad-bloque.invertido > :first-child { order: 2; }
+}
+
+/* ---------- Temporada (Cuándo ir) ---------- */
+.aviso { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; margin-bottom: 32px; border-radius: var(--radio); background: #FFF8DD; border: 1px solid #EBD58A; color: #5A4500; font-size: 15px; }
+.aviso strong { color: #3D2F00; }
+.tabla-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--papel); }
+.temporada { border-collapse: collapse; width: 100%; min-width: 900px; font-size: 14px; }
+.temporada caption { text-align: left; padding: 18px 20px 6px; font: 400 24px/1.2 var(--serif); }
+.temporada th, .temporada td { padding: 12px 10px; border-top: 1px solid var(--linea); text-align: center; }
+.temporada thead th { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); }
+.temporada tbody th { text-align: left; font-weight: 600; white-space: nowrap; position: sticky; left: 0; background: var(--papel); }
+.temporada td { color: #8A7A3A; }
+.temporada + .temporada { margin-top: 0; }
+.teaser-cuando { display: grid; gap: 24px; align-items: center; }
+.meses { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; }
+.meses span { display: grid; place-items: center; aspect-ratio: 1; border-radius: 3px; background: var(--arena-2); font-size: 11px; font-weight: 600; color: var(--suave); }
+@media (min-width: 900px) { .teaser-cuando { grid-template-columns: 1fr 1fr; gap: 64px; } }
+.hero-foto .foto-pendiente { aspect-ratio: 4 / 5; background: var(--profundo); border-radius: var(--radio); }
+@media (max-width: 899px) { .hero-foto .foto-pendiente { aspect-ratio: 5 / 4; } }
