@@ -17,6 +17,51 @@
     });
   }
 
+  // "Arma tu clase": actividad, fecha, horario, personas (+ nivel si es kitesurf) → WhatsApp.
+  var NOMBRES = { kitesurf: 'una clase de kitesurf', surf: 'una clase de surf', sup: 'una salida de stand up paddle', ebike: 'una ruta en e-bike' };
+
+  function fechaLarga(valor) {
+    if (!valor) return '';
+    var p = valor.split('-');
+    var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return d.toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' }).replace(',', '');
+  }
+
+  function hoyISO() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  document.querySelectorAll('[data-arma]').forEach(function (f) {
+    var el = f.elements;
+    var nivel = f.querySelector('[data-solo-kite]');
+    var vista = f.querySelector('[data-arma-vista]');
+    if (el.fecha) el.fecha.min = hoyISO();
+
+    function mensaje() {
+      var act = el.actividad.value;
+      var partes = 'Hola, quiero reservar ' + NOMBRES[act];
+      if (el.fecha.value) partes += ' el ' + fechaLarga(el.fecha.value);
+      partes += ', ' + el.horario.value;
+      var n = el.personas.value;
+      partes += ', para ' + n + (n === '1' ? ' persona' : ' personas') + '.';
+      if (act === 'kitesurf' && el.nivel.value) partes += ' Mi nivel: ' + el.nivel.value + '.';
+      return partes;
+    }
+
+    function actualizar() {
+      if (nivel) nivel.hidden = el.actividad.value !== 'kitesurf';
+      if (vista) vista.textContent = mensaje();
+    }
+
+    f.addEventListener('change', actualizar);
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      window.open('https://wa.me/' + WSP + '?text=' + encodeURIComponent(mensaje()), '_blank', 'noopener');
+    });
+    actualizar();
+  });
+
   // Formulario: arma el mensaje y abre WhatsApp. No envía datos a ningún servidor.
   var form = document.getElementById('form-reserva');
   if (!form) return;

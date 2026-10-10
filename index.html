@@ -112,8 +112,55 @@
              srcset="/img/kitesurf-la-serena-salto-800.webp 800w, /img/kitesurf-la-serena-salto-1600.webp 1600w"
              sizes="(min-width: 900px) 46vw, 100vw" width="800" height="533" fetchpriority="high"
              alt="Alumno de Herradura Experience saltando con su kite sobre el mar">
-        <figcaption><strong>Clases básicas e intermedias</strong>Curso recomendado de 10 a 15 horas</figcaption>
       </figure>
+    </div>
+
+    <div class="wrap">
+      <form class="arma" data-arma aria-labelledby="arma-titulo" novalidate>
+        <p class="arma-titulo" id="arma-titulo">Arma tu clase <span>y te respondemos por WhatsApp</span></p>
+        <div class="arma-campos">
+          <div class="arma-campo">
+            <label for="a-actividad">Actividad</label>
+            <select id="a-actividad" name="actividad">
+              <option value="kitesurf">Kitesurf</option>
+              <option value="surf">Surf</option>
+              <option value="sup">Stand up paddle</option>
+              <option value="ebike">E-bike</option>
+            </select>
+          </div>
+          <div class="arma-campo">
+            <label for="a-fecha">Fecha</label>
+            <input id="a-fecha" name="fecha" type="date">
+          </div>
+          <div class="arma-campo">
+            <label for="a-horario">Horario</label>
+            <select id="a-horario" name="horario">
+              <option value="en la mañana">Mañana</option>
+              <option value="a mediodía">Mediodía</option>
+              <option value="en la tarde">Tarde</option>
+              <option value="con horario flexible">Flexible</option>
+            </select>
+          </div>
+          <div class="arma-campo arma-corto">
+            <label for="a-personas">Personas</label>
+            <select id="a-personas" name="personas">
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option value="7 o más">7 o más</option>
+            </select>
+          </div>
+          <div class="arma-campo" data-solo-kite>
+            <label for="a-nivel">Nivel <span>(opcional)</span></label>
+            <select id="a-nivel" name="nivel">
+              <option value="">Prefiero no decir</option>
+              <option value="nunca he probado">Nunca he probado</option>
+              <option value="principiante">Principiante</option>
+              <option value="intermedio">Intermedio</option>
+              <option value="avanzado">Avanzado</option>
+            </select>
+          </div>
+          <button class="btn btn-solido" type="submit"><svg aria-hidden="true"><use href="#i-wsp"/></svg>Consultar por WhatsApp</button>
+        </div>
+        <p class="arma-vista" aria-live="polite" data-arma-vista></p>
+      </form>
     </div>
   </section>
 
