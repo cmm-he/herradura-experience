@@ -135,6 +135,7 @@ h3 { font-size: clamp(20px, 1.9vw, 24px); line-height: 1.15; }
 .hero-dato strong { color: var(--tinta); font-weight: 600; }
 .hero-foto { position: relative; margin: 0; }
 .hero-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 53% 62%; border-radius: var(--radio); }
+.hero-foto img.foco-centro { object-position: 50% 55%; }
 .hero-foto figcaption {
   position: absolute; left: clamp(16px, 3vw, 28px); bottom: 0; transform: translateY(50%);
   background: var(--papel); padding: 14px 18px; border-radius: var(--radio);
@@ -169,7 +170,7 @@ h3 { font-size: clamp(20px, 1.9vw, 24px); line-height: 1.15; }
 /* ---------- Actividades (mosaico, no tarjetas idénticas) ---------- */
 .mosaico { display: grid; gap: 20px; }
 .act { position: relative; display: flex; flex-direction: column; background: var(--papel); border-radius: var(--radio); overflow: hidden; }
-.act-foto { margin: 0; aspect-ratio: 3 / 2; background: var(--profundo); }
+.act-foto { margin: 0; aspect-ratio: 3 / 2; background: var(--profundo); overflow: hidden; }
 .act-foto img { width: 100%; height: 100%; object-fit: cover; }
 .foto-pendiente {
   display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 20px; text-align: center;
@@ -198,7 +199,9 @@ h3 { font-size: clamp(20px, 1.9vw, 24px); line-height: 1.15; }
   .mosaico { grid-template-columns: repeat(12, 1fr); }
   .act-destacada { grid-column: span 7; grid-row: span 2; }
   .act-surf, .act-sup { grid-column: span 5; }
-  .act-surf .act-foto, .act-sup .act-foto { display: none; }
+  .act-surf .act-foto:has(.foto-pendiente), .act-sup .act-foto:has(.foto-pendiente) { display: none; }
+  .act-sup .act-foto { aspect-ratio: 16 / 9; flex: none; overflow: hidden; }
+  .act-sup .act-foto img { object-position: 50% 62%; }
   .act-ebike, .act-empresas, .act-colegios { grid-column: span 4; }
 }
 
@@ -221,6 +224,7 @@ h3 { font-size: clamp(20px, 1.9vw, 24px); line-height: 1.15; }
 
 /* ---------- Centro deportivo ---------- */
 .centro-grid { display: grid; gap: clamp(32px, 5vw, 64px); }
+.centro-fotos { display: grid; gap: 16px; }
 .centro-foto { margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radio); overflow: hidden; background: var(--profundo); }
 .centro-foto img { width: 100%; height: 100%; object-fit: cover; }
 .instalaciones { list-style: none; margin: 0 0 32px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--linea); }
@@ -233,7 +237,7 @@ h3 { font-size: clamp(20px, 1.9vw, 24px); line-height: 1.15; }
 .publicos dd { margin: 0; color: var(--suave); font-size: 15px; }
 @media (min-width: 900px) {
   .centro-grid { grid-template-columns: 1.1fr .9fr; align-items: start; }
-  .centro-foto { aspect-ratio: 4 / 5; position: sticky; top: 104px; }
+  .centro-fotos { position: sticky; top: 104px; }
 }
 
 /* ---------- Empresas ---------- */
@@ -421,6 +425,7 @@ h3 { font-size: clamp(20px, 1.9vw, 24px); line-height: 1.15; }
 .actividad-bloque h2 { margin-bottom: 18px; }
 .actividad-bloque .lead { margin: 0 0 28px; }
 .actividad-foto { margin: 0; aspect-ratio: 4 / 3; background: var(--profundo); border-radius: var(--radio); overflow: hidden; }
+.actividad-foto img { width: 100%; height: 100%; object-fit: cover; }
 @media (min-width: 900px) {
   .actividad-bloque { grid-template-columns: 1fr 1fr; }
   .actividad-bloque.invertido > :first-child { order: 2; }
