@@ -10,15 +10,174 @@
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
         },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        }
       ]
     },
     {
       "source": "/img/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/tours{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/aventuras-particulares{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/aventuras-empresas{/}?",
+      "destination": "/empresas",
+      "permanent": true
+    },
+    {
+      "source": "/about{/}?",
+      "destination": "/nosotros",
+      "permanent": true
+    },
+    {
+      "source": "/contact{/}?",
+      "destination": "/contacto",
+      "permanent": true
+    },
+    {
+      "source": "/carrito{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cart{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/finalizar-compra{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/checkout{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/mi-cuenta{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/my-account{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/2020/09/29/hello-world{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/kitesurf-brasil{/}?",
+      "destination": "/viajes/brasil",
+      "permanent": true
+    },
+    {
+      "source": "/producto/cabarete-2026{/}?",
+      "destination": "/viajes/cabarete",
+      "permanent": true
+    },
+    {
+      "source": "/producto/actividades-recreativas{/}?",
+      "destination": "/empresas",
+      "permanent": true
+    },
+    {
+      "source": "/producto/outdoor-recreacion-integral{/}?",
+      "destination": "/empresas",
+      "permanent": true
+    },
+    {
+      "source": "/producto/clinica-multideportiva{/}?",
+      "destination": "/colegios",
+      "permanent": true
+    },
+    {
+      "source": "/producto/surf-grupal{/}?",
+      "destination": "/surf-sup-la-serena",
+      "permanent": true
+    },
+    {
+      "source": "/producto/surf{/}?",
+      "destination": "/surf-sup-la-serena",
+      "permanent": true
+    },
+    {
+      "source": "/producto/sup-grupal{/}?",
+      "destination": "/surf-sup-la-serena#sup",
+      "permanent": true
+    },
+    {
+      "source": "/producto/sup{/}?",
+      "destination": "/surf-sup-la-serena#sup",
+      "permanent": true
+    },
+    {
+      "source": "/producto/exp-ebikes{/}?",
+      "destination": "/e-bike-la-serena",
+      "permanent": true
+    },
+    {
+      "source": "/producto/e-bike{/}?",
+      "destination": "/e-bike-la-serena",
+      "permanent": true
+    },
+    {
+      "source": "/producto/kitesurf{/}?",
+      "destination": "/kitesurf-la-serena",
+      "permanent": true
+    },
+    {
+      "source": "/producto/windsurf{/}?",
+      "destination": "/kitesurf-la-serena",
+      "permanent": true
+    },
+    {
+      "source": "/categoria-producto/empresas{/}?",
+      "destination": "/empresas",
+      "permanent": true
+    },
+    {
+      "source": "/producto/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/categoria-producto/:slug*",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
