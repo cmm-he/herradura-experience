@@ -49,6 +49,27 @@
       return partes;
     }
 
+    var genericos = Array.prototype.map.call(el.horario.options, function (o) { return [o.textContent, o.value]; });
+
+    function horas(desde, hasta) {
+      var r = [];
+      for (var h = desde; h <= hasta; h++) { var t = (h < 10 ? '0' : '') + h + ':00'; r.push([t, 'a las ' + t]); }
+      return r;
+    }
+    // Horarios confirmados por Carlos (10-oct-2026): kite 11–18 h, surf 9–16 h (hora de inicio).
+    var HORARIOS = { kitesurf: horas(11, 17), surf: horas(9, 15) };
+
+    function cargarHorarios() {
+      var lista = HORARIOS[el.actividad.value] || genericos;
+      var previo = el.horario.value;
+      el.horario.innerHTML = '';
+      lista.forEach(function (h) { el.horario.add(new Option(h[0], h[1])); });
+      if (lista.some(function (h) { return h[1] === previo; })) el.horario.value = previo;
+    }
+
+    el.actividad.addEventListener('change', cargarHorarios);
+    cargarHorarios();
+
     function actualizar() {
       if (nivel) nivel.hidden = el.actividad.value !== 'kitesurf';
       if (vista) vista.textContent = mensaje();

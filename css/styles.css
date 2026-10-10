@@ -422,3 +422,4 @@ h3 { font-size: clamp(24px, 2.4vw, 30px); line-height: 1.15; }
 @media (min-width: 900px) { .teaser-cuando { grid-template-columns: 1fr 1fr; gap: 64px; } }
 .hero-foto .foto-pendiente { aspect-ratio: 4 / 5; background: var(--profundo); border-radius: var(--radio); }
 @media (max-width: 899px) { .hero-foto .foto-pendiente { aspect-ratio: 5 / 4; } }
+.temporada td.dato-ok { color: var(--tinta); background: #E6F6FB; font-weight: 500; white-space: nowrap; }
