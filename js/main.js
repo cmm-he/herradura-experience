@@ -19,7 +19,7 @@
   }
 
   // "Arma tu clase": actividad, fecha, horario, personas (+ nivel si es kitesurf) → WhatsApp.
-  var NOMBRES = { kitesurf: 'una clase de kitesurf', windsurf: 'una clase de windsurf', surf: 'una clase de surf', sup: 'una salida de stand up paddle', ebike: 'una salida privada en e-bike' };
+  var NOMBRES = { kitesurf: 'una clase de kitesurf', windsurf: 'una clase de windsurf', surf: 'una clase de surf', sup: 'una salida de stand up paddle', ebike: 'una salida en e-bike' };
 
   function fechaLarga(valor) {
     if (!valor) return '';
@@ -60,7 +60,7 @@
     // Confirmado por Carlos (10-oct-2026). Hora de inicio: kite y windsurf 11–18 h, surf y SUP 9–18 h, e-bike 8–18 h.
     var HORARIOS = { kitesurf: horas(11, 17), windsurf: horas(11, 17), surf: horas(9, 17), sup: horas(9, 17), ebike: horas(8, 17) };
     // SUP y e-bike: mínimo 2 personas.
-    var MINIMO = { sup: 2, ebike: 2 };
+    var MINIMO = { sup: 2 };
     var personasBase = Array.prototype.map.call(el.personas.options, function (o) { return [o.textContent, o.value]; });
 
     function cargarPersonas() {
