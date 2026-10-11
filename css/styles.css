@@ -516,3 +516,7 @@ h3 { font-size: clamp(19px, 1.6vw, 21px); line-height: 1.15; }
 .clientes-oscuro { border-color: rgba(255, 255, 255, .2); }
 .clientes-oscuro small { color: #C3D6E3; }
 [id] { scroll-margin-top: 96px; }
+.footer .redes, .redes { list-style: none; margin: 4px 0 0; padding: 0; display: flex; gap: 10px; }
+.footer .redes a, .redes a { display: inline-grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, .25); border-radius: 50%; color: #fff; }
+.footer .redes a:hover, .redes a:hover { background: var(--calipso); border-color: var(--calipso); color: var(--marino); }
+.redes svg { width: 20px; height: 20px; }
