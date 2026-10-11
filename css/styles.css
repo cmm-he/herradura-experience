@@ -511,3 +511,8 @@ h3 { font-size: clamp(19px, 1.6vw, 21px); line-height: 1.15; }
 .blog-card p { margin: 0 0 14px; color: var(--suave); }
 .blog-card .eyebrow { margin-bottom: 8px; }
 @media (min-width: 900px) { .blog-lista { grid-template-columns: 1fr 1fr; gap: 48px; } }
+.footer-legal-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.clientes small { display: block; margin-top: 6px; font: 400 14px/1.4 var(--sans); letter-spacing: 0; color: var(--suave); }
+.clientes-oscuro { border-color: rgba(255, 255, 255, .2); }
+.clientes-oscuro small { color: #C3D6E3; }
+[id] { scroll-margin-top: 96px; }

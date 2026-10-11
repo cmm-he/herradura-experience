@@ -9,7 +9,8 @@
     boton.addEventListener('click', function () {
       var abierta = nav.classList.toggle('abierta');
       boton.setAttribute('aria-expanded', abierta);
-      boton.setAttribute('aria-label', abierta ? 'Cerrar menú' : 'Abrir menú');
+      var en = document.documentElement.lang === 'en';
+      boton.setAttribute('aria-label', abierta ? (en ? 'Close menu' : 'Cerrar menú') : (en ? 'Open menu' : 'Abrir menú'));
       document.body.style.overflow = abierta ? 'hidden' : '';
     });
     nav.addEventListener('click', function (e) {
