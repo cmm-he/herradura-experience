@@ -521,3 +521,13 @@ h3 { font-size: clamp(19px, 1.6vw, 21px); line-height: 1.15; }
 .footer .redes a, .redes a { display: inline-grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, .25); border-radius: 50%; color: #fff; }
 .footer .redes a:hover, .redes a:hover { background: var(--calipso); border-color: var(--calipso); color: var(--marino); }
 .redes svg { width: 20px; height: 20px; }
+
+/* ---------- Galería de fotos ---------- */
+.galeria { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.galeria li { margin: 0; aspect-ratio: 1; border-radius: var(--radio); overflow: hidden; background: var(--arena-2); }
+.galeria img { width: 100%; height: 100%; object-fit: cover; }
+.galeria li:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+@media (min-width: 900px) {
+  .galeria { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .galeria li:last-child:nth-child(odd) { grid-column: auto; aspect-ratio: 1; }
+}
