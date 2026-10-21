@@ -272,7 +272,11 @@ h3 { font-size: clamp(19px, 1.6vw, 21px); line-height: 1.15; }
 .estrellas svg { width: 16px; height: 16px; fill: var(--sol); }
 .fuente { margin: 28px 0 0; font-size: 14px; color: var(--suave); }
 .fuente a { color: var(--profundo); }
-@media (min-width: 900px) { .resenas { grid-template-columns: 1.3fr 1fr 1fr; } .resena-destacada { padding: 40px; } }
+.resena-mar { background: var(--profundo); color: #fff; }
+.resena-mar figcaption, .resena-mar figcaption strong { color: #D6EAF5; }
+.resena-sol { background: var(--sol); color: var(--marino); }
+.resena-sol figcaption, .resena-sol figcaption strong { color: var(--marino); }
+@media (min-width: 900px) { .resenas { grid-template-columns: repeat(3, 1fr); } .resena { padding: 36px; } }
 
 /* ---------- Reserva con confianza ---------- */
 .garantias { display: grid; gap: 0; list-style: none; margin: 0; padding: 0; }
@@ -539,3 +543,7 @@ h3 { font-size: clamp(19px, 1.6vw, 21px); line-height: 1.15; }
   .galeria { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .galeria li:last-child:nth-child(odd) { grid-column: auto; aspect-ratio: 1; }
 }
+
+/* ---------- Centro deportivo: galería 2x2 ---------- */
+.centro-galeria { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 900px) { .centro-galeria { gap: 14px; } }
