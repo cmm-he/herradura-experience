@@ -149,3 +149,67 @@
     window.open('https://wa.me/' + WSP + '?text=' + encodeURIComponent(lineas.join('\n')), '_blank', 'noopener');
   });
 })();
+
+// Animaciones (contador de cifras y scroll-reveal). Respeta "reducir movimiento".
+(function () {
+  var sinMov = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (sinMov || !('IntersectionObserver' in window)) return;
+
+  // 2. Contador de las cifras, al entrar en pantalla (una sola vez).
+  var fmt = function (n, dec, agrupar) {
+    return n.toLocaleString('es-CL', { minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: agrupar });
+  };
+  function contar(nodo) {
+    var t = nodo.nodeValue.trim();
+    var prefijo = (t.match(/^[^\d]*/) || [''])[0];
+    var cuerpo = t.slice(prefijo.length);
+    var dec = cuerpo.indexOf(',') >= 0 ? (cuerpo.split(',')[1] || '').length : 0;
+    var agrupar = cuerpo.split(',')[0].indexOf('.') >= 0; // "2009" sin punto no lleva separador; "5.000" sí
+    var destino = parseFloat(cuerpo.replace(/\./g, '').replace(',', '.'));
+    if (isNaN(destino)) return;
+    var ini = null, dur = 1300;
+    function paso(ts) {
+      if (ini === null) ini = ts;
+      var p = Math.min((ts - ini) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3); // ease-out
+      nodo.nodeValue = prefijo + fmt(destino * e, dec, agrupar);
+      if (p < 1) requestAnimationFrame(paso); else nodo.nodeValue = prefijo + fmt(destino, dec, agrupar);
+    }
+    requestAnimationFrame(paso);
+  }
+  var franja = document.querySelector('.cifras');
+  if (franja) {
+    var ioFranja = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        franja.querySelectorAll('.cifra dd').forEach(function (dd) {
+          if (dd.firstChild && dd.firstChild.nodeType === 3) contar(dd.firstChild);
+        });
+        ioFranja.disconnect();
+      });
+    }, { threshold: .4 });
+    ioFranja.observe(franja);
+  }
+
+  // 3. Tarjetas de actividad: reveal individual (mismo timing en todas).
+  var ioUno = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('animar-in'); ioUno.unobserve(en.target); }
+    });
+  }, { threshold: .15, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.act').forEach(function (el) { ioUno.observe(el); });
+
+  // 5. Opiniones: las 3 tarjetas en cascada de izquierda a derecha.
+  var resenas = document.querySelector('.resenas');
+  if (resenas) {
+    var ioRes = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var tarjetas = resenas.querySelectorAll('.resena');
+        tarjetas.forEach(function (t, i) { t.style.transitionDelay = (i * 110) + 'ms'; t.classList.add('animar-in'); });
+        ioRes.disconnect();
+      });
+    }, { threshold: .3 });
+    ioRes.observe(resenas);
+  }
+})();
